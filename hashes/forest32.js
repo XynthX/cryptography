@@ -1,6 +1,7 @@
 /*
 Forest32 hash function
 Hash speed (lower is better): 2.1
+Made by: Me
 */
 
 function forest32(str, seed = 31) {
