@@ -15,10 +15,10 @@ function murmurhash2(str, seed) {
             (str.charCodeAt(currentIndex + 1) & 255) << 8 |
             (str.charCodeAt(currentIndex + 2) & 255) << 16 |
             (str.charCodeAt(currentIndex + 3) & 255) << 24;
-        k = numberUtils.imul(k, m);
+        k = Math.imul(k, m);
         k ^= k >>> r;
-        k = numberUtils.imul(k, m);
-        h = numberUtils.imul(h, m);
+        k = Math.imul(k, m);
+        h = Math.imul(h, m);
         h ^= k;
         len -= 4;
         currentIndex += 4;
@@ -32,10 +32,10 @@ function murmurhash2(str, seed) {
 
         case 1:
             h ^= str.charCodeAt(currentIndex) & 255;
-            h = numberUtils.imul(h, m);
+            h = Math.imul(h, m);
     }
     h ^= h >>> 13;
-    h = numberUtils.imul(h, m);
+    h = Math.imul(h, m);
     h ^= h >>> 15;
     return h >>> 0;
 }
